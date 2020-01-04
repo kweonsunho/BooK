@@ -6,23 +6,19 @@ int x,y;
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 struct BooK
 {
-	int isbn;// Ã¥ÀÇ isbn ¹øÈ£  
-	char title[31];//Ã¥ÀÇ Á¦¸ñ 
-	char state;//Ã¥ÀÇ »óÅÂ 
-	char author[11];//Ã¥À» ºô¸° »ç¶÷ 
+	int isbn;// ì±…ì˜ isbn ë²ˆí˜¸  
+	char title[31];//ì±…ì˜ ì œëª© 
+	char state;//ì±…ì˜ ìƒíƒœ 
+	char author[11];//ì±…ì„ ë¹Œë¦° ì‚¬ëŒ 
     
 };
 struct Person
 {
-	int number;//¹øÈ£  
-	char name[11];//»ç¶÷ ÀÌ¸§ 
+	int number;//ë²ˆí˜¸  
+	char name[11];//ì‚¬ëŒ ì´ë¦„ 
 	int landbookisbn[3];
     char landbooks;
 };
-void input(struct BooK *a,struct Person *b)
-{
- FILE *fp=fopen("")
-}
 
 int main(int argc, char *argv[])
 {
