@@ -1,28 +1,60 @@
 #include <stdio.h>
 #include <stdlib.h>
-int x,y;
- struct Person;
- struct BooK;
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
-struct BooK
+#include <string.h>
+
+struct Book
 {
-	int isbn;// 책의 isbn 번호  
-	char title[31];//책의 제목 
-	char state;//책의 상태 
-	char author[11];//책을 빌린 사람 
-    
-};
+	char title[31];
+	char author[11];
+	int state;
+	int isbn;
+	int index;
+} sample;
+
 struct Person
 {
-	int number;//번호  
-	char name[11];//사람 이름 
+	int number;
+	char name[11];
 	int landbookisbn[3];
-    char landbooks;
+	char landbooks;
 };
 
-int main(int argc, char *argv[])
+int book_num = 3;
+int person_num = 3;
+
+FILE *book_file;
+FILE *person_file;
+
+struct Book *books;
+struct Person *person;
+
+void inputBook()
 {
-struct BooK *a;
-struct Person *b;
-input(a,b);
+	book_file = fopen("book_data.txt", "r");
+	while (!feof(book_file)) {
+		fscanf(book_file, "%s %s %d %d %d", &sample.title, &sample.author, &sample.state, &sample.isbn, &sample.index);
+		strcpy(books[sample.index].title, sample.title);
+		strcpy(books[sample.index].author, sample.author);
+		books[sample.index].state = sample.state;
+		books[sample.index].isbn = sample.isbn;
+		books[sample.index].index = sample.index;
+	}
+}
+
+void printBook()
+{
+	for (int i = 0; i < book_num; i++) {
+		printf("%s %s %d %d %d\n", books[i].title, books[i].author, books[i].state, books[i].isbn, books[i].index);
+	}
+}
+
+int main()
+{
+	books = malloc(sizeof(struct Book) * book_num);
+	person = malloc(sizeof(struct Person) * person_num);
+
+	inputBook();
+	printBook();
+
+	return 0;
 }
